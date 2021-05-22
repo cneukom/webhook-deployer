@@ -1,0 +1,7 @@
+{
+  "type": "project",
+  "require": {
+    "deployer/deployer": "7.0.0-beta.23"
+  },
+  "minimum-stability": "beta"
+}
