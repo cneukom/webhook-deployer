@@ -88,3 +88,34 @@ function wrapExec($command): array
     error_log('Exec (' . $status . '): ' . $command . PHP_EOL . $output);
     return [$status, $output];
 }
+
+/**
+ * Get an environment variable value.
+ *
+ * This function checks if an environment variable $key exists and returns its value. If not, it checks if the key
+ * exists in the `.env` file and returns that value. If $key does not exist as environment variable nor in the `.env`
+ * file, an error is returned to the client.
+ *
+ * If you use this function for hiding authorization tokens from version control, make sure that you web server does not
+ * dump the `.env` file.
+ *
+ * @param $key
+ * @return mixed
+ */
+function env($key)
+{
+    static $dotEnv = null;
+    if ($dotEnv === null) {
+        if (file_exists(__DIR__ . '/.env')) {
+            $dotEnv = parse_ini_file(__DIR__ . '/.env');
+        }
+    }
+
+    if (isset($_ENV[$key])) {
+        return $_ENV[$key];
+    } else if (isset($dotEnv[$key])) {
+        return $dotEnv[$key];
+    }
+
+    abort('ENV ' . $key . ' not defined', 500);
+}
