@@ -23,6 +23,8 @@ return [
 If you want to send the output from the deployment command to the client for some stages, specify these stages in the `allowOutput` array.
 You probably don't want to do this for your production stage.
 
+Note, that you might not want to put your actual tokens under version control.
+
 Then, let your CI trigger the deployment webhook, e.g. with `wget`:
 
 ```shell

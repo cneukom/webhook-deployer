@@ -1,5 +1,6 @@
 <?php
-// This is a PHP file, such that the web server does not accidentally dump the authorization tokens
+// This is a PHP file, such that the web server does not accidentally dump the authorization tokens.
+// Note, however, that you might not want to put your actual authorization tokens under version control.
 
 return [
     // Mapping TOKEN => {stages}
