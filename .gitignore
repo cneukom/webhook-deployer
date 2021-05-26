@@ -1,3 +1,4 @@
 vendor
 config/*/auth.php
+.env
 env.php
