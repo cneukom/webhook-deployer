@@ -107,13 +107,13 @@ function env($key)
     static $dotEnv = null;
     static $envPhp = null;
     if ($dotEnv === null) {
-        if (file_exists(__DIR__ . '/.env')) {
-            $dotEnv = parse_ini_file(__DIR__ . '/.env');
+        if (file_exists(__DIR__ . '/../.env')) {
+            $dotEnv = parse_ini_file(__DIR__ . '/../.env');
         }
     }
     if ($envPhp === null) {
-        if (file_exists(__DIR__ . '/env.php')) {
-            $envPhp = require __DIR__ . '/env.php';
+        if (file_exists(__DIR__ . '/../env.php')) {
+            $envPhp = require __DIR__ . '/../env.php';
         }
     }
 
