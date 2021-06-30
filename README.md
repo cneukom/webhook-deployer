@@ -24,6 +24,7 @@ If you want to send the output from the deployment command to the client for som
 You probably don't want to do this for your production stage.
 
 Note, that you might not want to put your actual tokens under version control.
+You can specify your tokens in a `.env` or an `env.php` file and use the `env()` helper to access them from your `auth.php`.
 
 Then, let your CI trigger the deployment webhook, e.g. with `wget`:
 
